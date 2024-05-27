@@ -20,10 +20,11 @@ class Square(pygame.sprite.Sprite):
         self.image.fill(col)
         self.rect = self.image.get_rect()
         self.rect.center = (x,y)
-        
+
+
 # loader image ↓
-sprite_sheet_image = pygame.image.load("assets/sprites/personagem/personagem_spritesheet.png").convert_alpha()
+sprite_sheet_image = lambda: pygame.image.load("assets/sprites/personagem/personagem_spritesheet.png").convert_alpha()
 
 # define as image in pygame ↓
-sprite_sheet = SpriteSheet(sprite_sheet_image)
+sprite_sheet = lambda: SpriteSheet(sprite_sheet_image())
         
