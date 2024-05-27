@@ -11,3 +11,19 @@ class SpriteSheet():
         image = pygame.transform.scale(image, (width * scale, height * scale))
 
         return image
+
+# used in main.py ↓ 
+class Square(pygame.sprite.Sprite):
+    def __init__(self,col,x,y):
+        pygame.sprite.Sprite.__init__(self)
+        self.image = pygame.Surface((50,50))
+        self.image.fill(col)
+        self.rect = self.image.get_rect()
+        self.rect.center = (x,y)
+        
+# loader image ↓
+sprite_sheet_image = pygame.image.load("assets/sprites/personagem/personagem_spritesheet.png").convert_alpha()
+
+# define as image in pygame ↓
+sprite_sheet = SpriteSheet(sprite_sheet_image)
+        
