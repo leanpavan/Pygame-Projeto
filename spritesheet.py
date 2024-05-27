@@ -23,8 +23,7 @@ class Square(pygame.sprite.Sprite):
 
 
 # loader image ↓
-sprite_sheet_image = lambda: pygame.image.load("assets/sprites/personagem/personagem_spritesheet.png").convert_alpha()
+sprite_sheet_image = lambda: pygame.image.load("assets/sprites/personagem/sheets/DinoSprites - vita.png").convert_alpha()
 
 # define as image in pygame ↓
 sprite_sheet = lambda: SpriteSheet(sprite_sheet_image())
-        
