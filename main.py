@@ -1,6 +1,6 @@
 # Imports
 import pygame
-import sprite_classes as sc
+import spritesheet as ss
 
 # Pygame setup
 pygame.init()
@@ -18,7 +18,7 @@ FPS = 30
 
 player_pos = pygame.Vector2(screen.get_width() / 2, screen.get_height() / 2)
 
-square = sc.Square("crimson", 500,300)
+square = ss.Square("crimson", 500,300)
 
 # Create sprite group for squares
 squares = pygame.sprite.Group()
