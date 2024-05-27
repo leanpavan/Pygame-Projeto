@@ -1,12 +1,17 @@
 # Imports
 import pygame
+import player
+import spritesheet
+import tkinter as tk
+
 
 # Pygame setup
 pygame.init()
 
 # Screen
-WIDTH = 500
-HEIGHT = 500
+root = tk.Tk()
+WIDTH = root.winfo_screenwidth()
+HEIGHT = root.winfo_screenheight()
 
 screen = pygame.display.set_mode((WIDTH,HEIGHT))
 pygame.display.set_caption("Spritesheets")
@@ -16,7 +21,6 @@ pygame.display.set_caption("Spritesheets")
     sprite_sheet e sprite_sheet_image apenas funcionam depois da
     definição do "pygame.display" e "pygame.init()"  
 '''
-import spritesheet
 
 BG = "#aaaaaa"
 BLACK = "#000000"
@@ -42,8 +46,7 @@ clock = pygame.time.Clock()
 FPS = 30
 
 # Player
-player_pos = pygame.Vector2(screen.get_width() / 2, screen.get_height() / 2)
-player_speed = 300
+player = player.player(pygame.Vector2(screen.get_width() / 2, screen.get_height() / 2), spritesheet.sprite_sheet())
 
 # Game Loop
 running = True
@@ -65,17 +68,16 @@ while running:
 
 
     # Show frame image
-    print(frame)
-    screen.blit(animation_list[action][frame], (player_pos,player_pos))
+    screen.blit(animation_list[action][frame], (player.player_pos,player.player_pos))
 
 
     # Player movement
     keys = pygame.key.get_pressed()
     if keys[pygame.K_a]:
-        player_pos.x -= player_speed * dt
+        player.player_pos.x -= player.player_walkspeed * dt
         action = 1
     elif keys[pygame.K_d]:
-        player_pos.x += player_speed * dt
+        player.player_pos.x += player.player_walkspeed * dt
         action = 1
     elif keys[pygame.K_a] == False and keys[pygame.K_d] == False:
         if frame >= 4:
@@ -85,7 +87,7 @@ while running:
 
     # Event handler
     for event in pygame.event.get():
-        if event.type == pygame.QUIT:
+        if event.type == pygame.QUIT or keys[pygame.K_ESCAPE]:
             running = False
 
     pygame.display.update()
