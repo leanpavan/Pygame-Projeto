@@ -13,7 +13,6 @@ class SpriteSheet():
         return image
 
 # loader image ↓
-sprite_sheet_image = lambda: pygame.image.load("assets/sprites/personagem/sheets/DinoSprites - vita.png").convert_alpha()
 
 # define as image in pygame ↓
-sprite_sheet = lambda: SpriteSheet(sprite_sheet_image())
+

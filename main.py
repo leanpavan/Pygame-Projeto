@@ -17,13 +17,12 @@ WIDTH = root.winfo_screenwidth()
 HEIGHT = root.winfo_screenheight()
 
 screen = pygame.display.set_mode((0,0),pygame.FULLSCREEN)
-pygame.display.set_caption("Spritesheets")
+pygame.display.set_caption("Jogo")
 
 # Spritesheet import
-'''  
-    sprite_sheet e sprite_sheet_image apenas funcionam depois da
-    definição do "pygame.display" e "pygame.init()"  
-'''
+
+player_sheet = pygame.image.load("assets/sprites/personagem/sheets/DinoSprites - vita.png").convert_alpha()
+sprite_sheet = ss_.SpriteSheet.get_image(0, 4,24,24,3)
 
 BG = "#aaaaaa"
 BLACK = "#000000"
@@ -36,7 +35,7 @@ clock = pygame.time.Clock()
 FPS = 60
 
 # Player
-player = pl_.player(pygame.Vector2(screen.get_width() / 2, screen.get_height() / 2), ss_.sprite_sheet())
+player = pl_.player(pygame.Vector2(screen.get_width() / 2, screen.get_height() / 2), sprite_sheet)
 
 # Game Loop
 running = True
