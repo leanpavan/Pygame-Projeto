@@ -4,6 +4,7 @@ import tkinter as tk
 
 # Imports self.librarys
 import spritesheet as ss_
+import animations as an_
 import player as pl_
 
 
@@ -15,7 +16,7 @@ root = tk.Tk()
 WIDTH = root.winfo_screenwidth()
 HEIGHT = root.winfo_screenheight()
 
-screen = pygame.display.set_mode((WIDTH,HEIGHT))
+screen = pygame.display.set_mode((0,0),pygame.FULLSCREEN)
 pygame.display.set_caption("Spritesheets")
 
 # Spritesheet import
@@ -28,12 +29,11 @@ BG = "#aaaaaa"
 BLACK = "#000000"
 
 # Create animation object
-import animations as an_
 an_.animation.create_animation_list()
 
 # Framerate
 clock = pygame.time.Clock()
-FPS = 30
+FPS = 60
 
 # Player
 player = pl_.player(pygame.Vector2(screen.get_width() / 2, screen.get_height() / 2), ss_.sprite_sheet())
