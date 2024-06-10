@@ -3,7 +3,7 @@ import pygame
 import tkinter as tk
 
 # Imports self.librarys
-import spritesheet as ss_
+import ssss as ss_
 import animations as an_
 import player as pl_
 
@@ -22,13 +22,13 @@ pygame.display.set_caption("Jogo")
 # Spritesheet import
 
 player_sheet = pygame.image.load("assets/sprites/personagem/sheets/DinoSprites - vita.png").convert_alpha()
-sprite_sheet = ss_.SpriteSheet.get_image(0, 4,24,24,3)
+sprite_sheet = ss_.SpriteSheet(player_sheet)
 
 BG = "#aaaaaa"
 BLACK = "#000000"
 
 # Create animation object
-an_.animation.create_animation_list()
+an_.animation.create_animation_list(player_sheet)
 
 # Framerate
 clock = pygame.time.Clock()
@@ -44,19 +44,15 @@ while running:
     # Update background
     screen.fill(BG)
 
-
     # Clock
     dt = clock.tick(FPS) / 1000
-
 
     # Update animation
     current_time = pygame.time.get_ticks()
     an_.animation.update_animation(current_time)
 
-
     # Show frame image
     screen.blit(an_.animation.animation_list[an_.animation.action][an_.animation.frame], (player.player_pos,player.player_pos))
-
 
     # Player movement
     keys = pygame.key.get_pressed()
@@ -67,6 +63,5 @@ while running:
     for event in pygame.event.get():
         if event.type == pygame.QUIT or keys[pygame.K_ESCAPE]:
             running = False
-
 
     pygame.display.update()

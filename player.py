@@ -1,7 +1,7 @@
 #Imports
 import pygame
 import animations as an_
-import spritesheet as ss_
+import ssss as ss_
 
 class player():
     def __init__(self, player_pos, player_sprite):
