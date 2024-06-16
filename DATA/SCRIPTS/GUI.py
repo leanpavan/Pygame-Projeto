@@ -19,7 +19,7 @@ def main_menu(game_state:dict):
 
         MENU_MOUSE_POS = pygame.mouse.get_pos()
         #para mudar a cor/nome do menu
-        MENU_TEXT = get_font(75).render("DARK SOULS 2D", True, "#eff0e4")
+        MENU_TEXT = get_font(75).render("PROJETO GRADIENTE", True, "#eff0e4")
         MENU_RECT = MENU_TEXT.get_rect(center=(640, 100))
         PLAY_BUTTON = Button(image=pygame.image.load("DATA/main_menu/Play Rect.png"), pos=(640, 400),
                              text_input="PLAY", font=get_font(75), base_color="#d7fcd4", hovering_color="White")
